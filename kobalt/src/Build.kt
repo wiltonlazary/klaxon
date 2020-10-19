@@ -6,8 +6,8 @@ import com.beust.kobalt.plugin.publish.bintray
 import com.beust.kobalt.project
 
 object Version {
-    val klaxon = "5.0.12"
-    val kotlin = "1.3.41"
+    val klaxon = "5.0.14-SNAPSHOT"
+    val kotlin = "1.3.70"
 }
 
 val klaxon = project {
@@ -47,7 +47,7 @@ val klaxon = project {
 
 val jackson = project(klaxon) {
     name = "klaxon-jackson"
-    directory = "plugins/$name"
+    directory = "$name"
     group = "com.beust"
     artifactId = name
     version = "1.0.0"

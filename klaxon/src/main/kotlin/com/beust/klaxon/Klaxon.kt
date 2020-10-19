@@ -249,7 +249,7 @@ class Klaxon : ConverterFinder {
                 null
             }
 
-        var result = propConverter
+        val result = propConverter
                 ?: findBestConverter(cls, prop)
                 ?: (if (propertyClass != null) findBestConverter(propertyClass, prop) else null)
                 ?: DEFAULT_CONVERTER
@@ -296,9 +296,14 @@ class Klaxon : ConverterFinder {
         return classConverter.fromJson(JsonValue(jsonObject, cls, type, this@Klaxon)) as Any
     }
 
-    fun warn(s: String) = println("Warning: $s")
+    /**
+     * Convert the parameter into a JsonObject
+     */
+    @Suppress("unused")
+    fun toJsonObject(obj: Any) = JsonValue.convertToJsonObject(obj, this)
 
     fun log(s: String) {
         if (Debug.verbose) println(s)
     }
+
 }
